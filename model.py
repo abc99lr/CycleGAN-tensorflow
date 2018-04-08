@@ -146,8 +146,8 @@ class cyclegan(object):
         print("Training Starts!!!") 
 
         for epoch in range(args.epoch):
-            dataA = glob('./datasets/{}/*.*'.format(self.dataset_dir + '/trainA'))
-            dataB = glob('./datasets/{}/*.*'.format(self.dataset_dir + '/trainB'))
+            dataA = glob('{}/*.*'.format(self.dataset_dir + '/trainA'))
+            dataB = glob('{}/*.*'.format(self.dataset_dir + '/trainB'))
             np.random.shuffle(dataA)
             np.random.shuffle(dataB)
 
