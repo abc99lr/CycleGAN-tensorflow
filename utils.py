@@ -74,7 +74,8 @@ def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
     # img_A = np.reshape(img_A, [fine_size, fine_size, 1])
     # img_B = np.reshape(img_B, [fine_size, fine_size, 1])
 
-    img_AB = np.concatenate((img_A, img_B), axis=2)
+    img_AB = np.concatenate((img_A, img_B), axis=1)
+    print(imgAB.shape)
     # img_AB shape: (fine_size, fine_size, input_c_dim + output_c_dim)
     return img_AB
 
@@ -88,7 +89,7 @@ def save_images(images, size, image_path):
 
 def imread(path, is_grayscale = True):
     if (is_grayscale):
-        return _imread(path, flatten=False).astype(np.float)
+        return _imread(path, flatten=True).astype(np.float)
     else:
         return _imread(path, mode='RGB').astype(np.float)
 
