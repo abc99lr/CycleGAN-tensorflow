@@ -115,10 +115,12 @@ class cyclegan(object):
         t_vars = tf.trainable_variables()
         self.d_vars = [var for var in t_vars if 'discriminator' in var.name]
         self.g_vars = [var for var in t_vars if 'generator' in var.name]
-        for var in t_vars: print(var.name)
+        # for var in t_vars: print(var.name)
 
     def train(self, args):
         """Train cyclegan"""
+
+        print("Training Starts")
         self.lr = tf.placeholder(tf.float32, None, name='learning_rate')
         self.d_optim = tf.train.AdamOptimizer(self.lr, beta1=args.beta1) \
             .minimize(self.d_loss, var_list=self.d_vars)
@@ -127,24 +129,40 @@ class cyclegan(object):
 
         init_op = tf.global_variables_initializer()
         self.sess.run(init_op)
+
+        print("Preparing Tensor Board")
         self.writer = tf.summary.FileWriter("./logs", self.sess.graph)
 
         counter = 1
         start_time = time.time()
-
+        
+        print("Loading Checkpoints If Any") 
         if args.continue_train:
             if self.load(args.checkpoint_dir):
                 print(" [*] Load SUCCESS")
             else:
                 print(" [!] Load failed...")
 
+        print("Training Starts!!!") 
+
         for epoch in range(args.epoch):
             dataA = glob('./datasets/{}/*.*'.format(self.dataset_dir + '/trainA'))
             dataB = glob('./datasets/{}/*.*'.format(self.dataset_dir + '/trainB'))
             np.random.shuffle(dataA)
             np.random.shuffle(dataB)
+
+            print len(dataA) 
+            print len(dataB)
+
+            print("After Data Shuffling")
+
             batch_idxs = min(min(len(dataA), len(dataB)), args.train_size) // self.batch_size
+
+            print(batch_idxs)
+
             lr = args.lr if epoch < args.epoch_step else args.lr*(args.epoch-epoch)/(args.epoch-args.epoch_step)
+
+            print "Learning Rate at This Epoch: ", lr 
 
             for idx in range(0, batch_idxs):
                 batch_files = list(zip(dataA[idx * self.batch_size:(idx + 1) * self.batch_size],
