@@ -77,13 +77,13 @@ def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
 
 # -----------------------------
 
-def get_image(image_path, image_size, is_crop=True, resize_w=64, is_grayscale = False):
+def get_image(image_path, image_size, is_crop=True, resize_w=64, is_grayscale = True):
     return transform(imread(image_path, is_grayscale), image_size, is_crop, resize_w)
 
 def save_images(images, size, image_path):
     return imsave(inverse_transform(images), size, image_path)
 
-def imread(path, is_grayscale = False):
+def imread(path, is_grayscale = True):
     if (is_grayscale):
         return _imread(path, flatten=True).astype(np.float)
     else:
