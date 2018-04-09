@@ -80,8 +80,8 @@ def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
 
     # img_AB[:, :, 0] = np.array(img_A)
     # img_AB[:, :, 1] = np.array(img_B)
-    img_A = np.reshape(img_A, (load_H, load_W, 1))
-    img_B = np.reshape(img_B, (load_H, load_W, 1))
+    img_A = np.reshape(img_A, (fine_size, fine_size, 1))
+    img_B = np.reshape(img_B, (fine_size, fine_size, 1))
 
     img_AB = np.concatenate((img_A, img_B), axis=2)
     # img_AB shape: (fine_size, fine_size, input_c_dim + output_c_dim)
