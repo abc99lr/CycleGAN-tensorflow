@@ -134,7 +134,7 @@ class cyclegan(object):
         self.writer = tf.summary.FileWriter("./logs", self.sess.graph)
 
         counter = 1
-        # start_time = time.time()
+        start_time = time.time()
         
         print("Loading Checkpoints If Any") 
         if args.continue_train:
@@ -151,8 +151,8 @@ class cyclegan(object):
             np.random.shuffle(dataA)
             np.random.shuffle(dataB)
 
-            print len(dataA) 
-            print len(dataB)
+            # print len(dataA) 
+            # print len(dataB)
 
             # print("After Data Shuffling")
 
