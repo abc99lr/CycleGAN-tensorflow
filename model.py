@@ -134,7 +134,7 @@ class cyclegan(object):
         self.writer = tf.summary.FileWriter("./logs", self.sess.graph)
 
         counter = 1
-        start_time = time.time()
+        # start_time = time.time()
         
         print("Loading Checkpoints If Any") 
         if args.continue_train:
@@ -143,7 +143,7 @@ class cyclegan(object):
             else:
                 print(" [!] Load failed...")
 
-        print("Training Starts!!!") 
+        # print("Training Starts!!!") 
 
         for epoch in range(args.epoch):
             dataA = glob('{}/*.*'.format(self.dataset_dir + '/trainA'))
@@ -154,11 +154,11 @@ class cyclegan(object):
             print len(dataA) 
             print len(dataB)
 
-            print("After Data Shuffling")
+            # print("After Data Shuffling")
 
             batch_idxs = min(min(len(dataA), len(dataB)), args.train_size) // self.batch_size
 
-            print(batch_idxs)
+            # print(batch_idxs)
 
             lr = args.lr if epoch < args.epoch_step else args.lr*(args.epoch-epoch)/(args.epoch-args.epoch_step)
 
