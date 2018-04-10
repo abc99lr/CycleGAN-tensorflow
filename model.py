@@ -193,8 +193,8 @@ class cyclegan(object):
                 if np.mod(counter, args.print_freq) == 1:
                     self.sample_model(args.sample_dir, epoch, idx)
 
-                self.save(args.checkpoint_dir, counter)
-                
+                # self.save(args.checkpoint_dir, counter)
+
                 if np.mod(counter, args.save_freq) == 1:
                     self.save(args.checkpoint_dir, counter)
 
