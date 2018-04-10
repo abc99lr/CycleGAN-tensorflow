@@ -193,10 +193,14 @@ class cyclegan(object):
                 if np.mod(counter, args.print_freq) == 1:
                     self.sample_model(args.sample_dir, epoch, idx)
 
-                if np.mod(counter, args.save_freq) == 2:
+                self.save(args.checkpoint_dir, counter)
+                
+                if np.mod(counter, args.save_freq) == 1:
                     self.save(args.checkpoint_dir, counter)
 
     def save(self, checkpoint_dir, step):
+
+        print "[!] Saving Model ... "
         model_name = "cyclegan.model"
         # model_dir = "%s_%s" % (self.dataset_dir, self.image_size)
         # checkpoint_dir = os.path.join(checkpoint_dir, model_dir)
