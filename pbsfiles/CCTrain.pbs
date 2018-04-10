@@ -1,6 +1,6 @@
 #!/bin/bash 
 #
-#PBS -l walltime=10:00:00,nodes=1:ppn=16:TeslaK40M
+#PBS -l walltime=12:00:00,nodes=1:ppn=16:TeslaK40M
 #PBS -N CycleGAN
 #PBS -q ncsa 
 
