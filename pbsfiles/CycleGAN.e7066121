@@ -1,0 +1,32 @@
+----------------------------------------
+Begin Torque Prologue (Tue Apr 10 18:21:29 2018)
+Job ID:           7066121.cc-mgmt1.campuscluster.illinois.edu
+Username:         ruilan2
+Group:            ncsa
+Job Name:         CycleGAN
+Limits:           walltime=12:00:00,nodes=1:ppn=16:TeslaK40M,neednodes=1:ppn=16:TeslaK40M
+Job Queue:        ncsa
+Account:          ncsa
+Nodes:            golub126
+End Torque Prologue
+----------------------------------------
+2018-04-10 18:22:13.219658: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2018-04-10 18:22:18.463550: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla K40m major: 3 minor: 5 memoryClockRate(GHz): 0.745
+pciBusID: 0000:05:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2018-04-10 18:22:18.463762: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K40m, pci bus id: 0000:05:00.0, compute capability: 3.5)
+----------------------------------------
+Begin Torque Epilogue (Wed Apr 11 01:26:01 2018)
+Job ID:           7066121.cc-mgmt1.campuscluster.illinois.edu
+Username:         ruilan2
+Group:            ncsa
+Job Name:         CycleGAN
+Session:          22152
+Limits:           walltime=12:00:00,nodes=1:ppn=16:TeslaK40M,neednodes=1:ppn=16:TeslaK40M
+Resources:        cput=08:11:10,vmem=94402988kb,walltime=07:04:32,mem=2475648kb,energy_used=0
+Job Queue:        ncsa
+Account:          ncsa
+Nodes:            golub126
+End Torque Epilogue
+----------------------------------------
