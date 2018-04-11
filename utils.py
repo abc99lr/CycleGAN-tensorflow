@@ -46,6 +46,7 @@ def load_test_data(image_path, fine_size=256):
     img = imread(image_path)
     img = scipy.misc.imresize(img, [fine_size, fine_size])
     img = img/127.5 - 1
+    img = np.reshape(img, (fine_size, fine_size, 1))
     return img
 
 def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
