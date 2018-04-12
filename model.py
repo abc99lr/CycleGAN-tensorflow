@@ -224,7 +224,7 @@ class cyclegan(object):
         ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
         if ckpt and ckpt.model_checkpoint_path:
             ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
-            self.saver.restore(self.sess, tf.train.latest_checkpoint(os.path.join(checkpoint_dir, ckpt_name)))
+            self.saver.restore(self.sess, os.path.join(checkpoint_dir, ckpt_name))
             return True
         else:
             return False
