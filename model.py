@@ -35,7 +35,7 @@ class cyclegan(object):
 
         OPTIONS = namedtuple('OPTIONS', 'batch_size image_height image_width \
                               gf_dim df_dim output_c_dim is_training')
-        self.options = OPTIONS._make((args.batch_size, args.fine_height, args.find_width,
+        self.options = OPTIONS._make((args.batch_size, args.fine_height, args.fine_width,
                                       args.ngf, args.ndf, args.output_nc,
                                       args.phase == 'train'))
 
