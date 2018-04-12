@@ -16,7 +16,7 @@ class cyclegan(object):
         self.batch_size = args.batch_size
 
         self.image_height = args.fine_height
-        self.image_width = args.find_width
+        self.image_width = args.fine_width
 
         self.input_c_dim = args.input_nc
         self.output_c_dim = args.output_nc
