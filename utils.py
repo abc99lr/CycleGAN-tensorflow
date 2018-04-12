@@ -49,17 +49,17 @@ def load_test_data(image_path, fine_size=256):
     img = np.reshape(img, (fine_size, fine_size, 1))
     return img
 
-def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
+def load_train_data(image_path, load_height=256, load_width=320, fine_height=256, fine_width=320, is_testing=False):
     img_A = imread(image_path[0])
     img_B = imread(image_path[1])
-    # load_H = img_A.shape[0]
-    # load_W = img_A.shape[1]
+    load_H = img_A.shape[0]
+    load_W = img_A.shape[1]
 
     # print(load_H)
     # print(load_W)
 
-    img_A = scipy.misc.imresize(img_A, [fine_size, fine_size])
-    img_B = scipy.misc.imresize(img_B, [fine_size, fine_size])
+    img_A = scipy.misc.imresize(img_A, [fine_height, fine_width])
+    img_B = scipy.misc.imresize(img_B, [fine_height, fine_width])
     # if not is_testing:
     #     img_A = scipy.misc.imresize(img_A, [load_H, load_W])
     #     img_B = scipy.misc.imresize(img_B, [load_H, load_W])
@@ -81,8 +81,8 @@ def load_train_data(image_path, load_size=286, fine_size=256, is_testing=False):
 
     # img_AB[:, :, 0] = np.array(img_A)
     # img_AB[:, :, 1] = np.array(img_B)
-    img_A = np.reshape(img_A, (fine_size, fine_size, 1))
-    img_B = np.reshape(img_B, (fine_size, fine_size, 1))
+    img_A = np.reshape(img_A, (fine_height, fine_width, 1))
+    img_B = np.reshape(img_B, (fine_height, fine_width, 1))
 
     img_AB = np.concatenate((img_A, img_B), axis=2)
     # img_AB shape: (fine_size, fine_size, input_c_dim + output_c_dim)

@@ -11,8 +11,13 @@ parser.add_argument('--epoch', dest='epoch', type=int, default=2, help='# of epo
 parser.add_argument('--epoch_step', dest='epoch_step', type=int, default=100, help='# of epoch to decay lr')
 parser.add_argument('--batch_size', dest='batch_size', type=int, default=2, help='# images in batch')
 parser.add_argument('--train_size', dest='train_size', type=int, default=7128, help='# images used to train')
-parser.add_argument('--load_size', dest='load_size', type=int, default=286, help='scale images to this size')
-parser.add_argument('--fine_size', dest='fine_size', type=int, default=256, help='then crop to this size')
+
+parser.add_argument('--load_height', dest='load_height', type=int, default=256, help='scale images to this height')
+parser.add_argument('--load_width', dest='load_width', type=int, default=320, help='scale images to this width')
+
+parser.add_argument('--fine_height', dest='fine_height', type=int, default=256, help='then crop to this height')
+parser.add_argument('--fine_width', dest='fine_width', type=int, default=320, help='then crop to this width')
+
 parser.add_argument('--ngf', dest='ngf', type=int, default=64, help='# of gen filters in first conv layer')
 parser.add_argument('--ndf', dest='ndf', type=int, default=64, help='# of discri filters in first conv layer')
 parser.add_argument('--input_nc', dest='input_nc', type=int, default=1, help='# of input image channels')
