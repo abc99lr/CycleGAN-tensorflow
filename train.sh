@@ -5,5 +5,5 @@ CUDA_VISIBLE_DEVICES=0 python main.py \
     --sample_dir /home/ruilan2/scratch/MPR0_CCSample/sample_0411 \
     --save_freq 1000 \
     --print_freq 100 \
-    --continue_train True \
-    --checkpoint_dir /home/ruilan2/scratch/MPR0_CCResult/ 
+    --continue_train False \
+    --checkpoint_dir /home/ruilan2/scratch/MPR0_CCResult/Model0412
