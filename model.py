@@ -142,6 +142,7 @@ class cyclegan(object):
         counter = 1
         start_time = time.time()
         
+        print(args.continue_train)
         print("Loading Checkpoints If Any") 
         if args.continue_train:
             if self.load(args.checkpoint_dir):
@@ -231,10 +232,11 @@ class cyclegan(object):
         #     return True
         # else:
         #     return False
-        if checkpoint_dir is None:
+        checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
+        if checkpoint is None:
             return False
         else: 
-            checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
+            
             self.saver.restore(self.sess, checkpoint)
             return True 
 
