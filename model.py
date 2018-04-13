@@ -224,13 +224,19 @@ class cyclegan(object):
         # model_dir = "%s_%s" % (self.dataset_dir, self.image_size)
         # checkpoint_dir = os.path.join(checkpoint_dir, model_dir)
 
-        ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
-        if ckpt and ckpt.model_checkpoint_path:
-            ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
-            self.saver.restore(self.sess, os.path.join(checkpoint_dir, ckpt_name))
-            return True
-        else:
+        # ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
+        # if ckpt and ckpt.model_checkpoint_path:
+        #     ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
+        #     self.saver.restore(self.sess, os.path.join(checkpoint_dir, ckpt_name))
+        #     return True
+        # else:
+        #     return False
+        if checkpoint_dir is None:
             return False
+        else: 
+            checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
+            self.saver.restore(self.sess, checkpoint)
+            return True 
 
     def sample_model(self, sample_dir, epoch, idx):
         dataA = glob('{}/*.*'.format(self.dataset_dir + '/testA'))
