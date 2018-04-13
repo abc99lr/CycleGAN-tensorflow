@@ -25,8 +25,10 @@ class cyclegan(object):
 
         self.discriminator = discriminator
         if args.use_resnet:
+            print "Resnet"
             self.generator = generator_resnet
         else:
+            print "Unet"
             self.generator = generator_unet
         if args.use_lsgan:
             self.criterionGAN = mae_criterion
