@@ -5,5 +5,5 @@ CUDA_VISIBLE_DEVICES=0 python main.py \
     --sample_dir /home/ruilan2/scratch/MPR0_CCSample/sample_0413-unet \
     --save_freq 1000 \
     --print_freq 100 \
-    --continue_train False \
+    --continue_train 0 \
     --checkpoint_dir /home/ruilan2/scratch/MPR0_CCResult/Model0413-unet
