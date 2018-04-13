@@ -65,11 +65,11 @@ class cyclegan(object):
         self.g_loss_b2a = self.criterionGAN(self.DA_fake, tf.ones_like(self.DA_fake)) \
             + self.L1_lambda * abs_criterion(self.real_A, self.fake_A_) \
             + self.L1_lambda * abs_criterion(self.real_B, self.fake_B_)
-        self.g_loss = 0.001 * self.criterionGAN(self.DA_fake, tf.ones_like(self.DA_fake)) \
-            + 0.001 * self.criterionGAN(self.DB_fake, tf.ones_like(self.DB_fake)) \
-            + abs_criterion(self.real_A, self.fake_A_) \
-            + abs_criterion(self.real_B, self.fake_B_) \
-            + self.L1_lambda * mae_criterion(self.fake_B, self.real_B)
+        self.g_loss = self.criterionGAN(self.DA_fake, tf.ones_like(self.DA_fake)) \
+            + self.criterionGAN(self.DB_fake, tf.ones_like(self.DB_fake)) \
+            + self.L1_lambda * abs_criterion(self.real_A, self.fake_A_) \
+            + self.L1_lambda * abs_criterion(self.real_B, self.fake_B_)
+            # + self.L1_lambda * mae_criterion(self.fake_B, self.real_B)
         
         # self.content_loss = self.mae_criterion(self.fake_B, self.real_B)
 
