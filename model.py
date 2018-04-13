@@ -234,8 +234,8 @@ class cyclegan(object):
         if checkpoint_dir is None:
             return False
         else: 
-            checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
-            self.saver.restore(self.sess, checkpoint)
+            # checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
+            self.saver.restore(self.sess, checkpoint_dir)
             return True 
 
     def sample_model(self, sample_dir, epoch, idx):
