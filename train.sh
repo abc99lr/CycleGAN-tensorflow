@@ -6,5 +6,4 @@ CUDA_VISIBLE_DEVICES=0 python main.py \
     --save_freq 1000 \
     --print_freq 100 \
     --continue_train False \
-    --checkpoint_dir /home/ruilan2/scratch/MPR0_CCResult/Model0413-unet \
-    --use_resnet False
+    --checkpoint_dir /home/ruilan2/scratch/MPR0_CCResult/Model0413-unet
