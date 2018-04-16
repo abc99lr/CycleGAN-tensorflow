@@ -234,13 +234,14 @@ class cyclegan(object):
         #     return True
         # else:
         #     return False
-        checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
-        if checkpoint is None:
-            return False
-        else: 
+        self.saver.restore(self.sess, checkpoint_dir)
+        # checkpoint = tf.train.latest_checkpoint(checkpoint_dir)
+        # if checkpoint is None:
+        #     return False
+        # else: 
             
-            self.saver.restore(self.sess, checkpoint)
-            return True 
+        #     self.saver.restore(self.sess, checkpoint_dir)
+        return True 
 
     def sample_model(self, sample_dir, epoch, idx):
         dataA = glob('{}/*.*'.format(self.dataset_dir + '/testA'))
