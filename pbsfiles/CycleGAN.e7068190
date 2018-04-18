@@ -1,0 +1,54 @@
+----------------------------------------
+Begin Torque Prologue (Wed Apr 11 15:50:18 2018)
+Job ID:           7068190.cc-mgmt1.campuscluster.illinois.edu
+Username:         ruilan2
+Group:            ncsa
+Job Name:         CycleGAN
+Limits:           walltime=32:00:00,nodes=1:ppn=16:TeslaK40M,neednodes=1:ppn=16:TeslaK40M
+Job Queue:        ncsa
+Account:          ncsa
+Nodes:            golub127
+End Torque Prologue
+----------------------------------------
+2018-04-11 15:50:45.986140: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2018-04-11 15:50:52.791981: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla K40m major: 3 minor: 5 memoryClockRate(GHz): 0.745
+pciBusID: 0000:05:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2018-04-11 15:50:52.792074: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K40m, pci bus id: 0000:05:00.0, compute capability: 3.5)
+Traceback (most recent call last):
+  File "main.py", line 55, in <module>
+    tf.app.run()
+  File "/usr/local/anaconda/4.4.0/2/lib/python2.7/site-packages/tensorflow/python/platform/app.py", line 48, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "main.py", line 51, in main
+    model.train(args) if args.phase == 'train' \
+  File "/home/ruilan2/CycleGAN-tensorflow/model.py", line 194, in train
+    self.sample_model(args.sample_dir, epoch, idx)
+  File "/home/ruilan2/CycleGAN-tensorflow/model.py", line 243, in sample_model
+    './{}/A_{:02d}_{:04d}.jpg'.format(sample_dir, epoch, idx))
+  File "/home/ruilan2/CycleGAN-tensorflow/utils.py", line 97, in save_images
+    return imsave(inverse_transform(images), size, image_path)
+  File "/home/ruilan2/CycleGAN-tensorflow/utils.py", line 119, in imsave
+    return scipy.misc.imsave(path, merge(images, size))
+  File "/usr/local/anaconda/4.4.0/2/lib/python2.7/site-packages/numpy/lib/utils.py", line 101, in newfunc
+    return func(*args, **kwds)
+  File "/usr/local/anaconda/4.4.0/2/lib/python2.7/site-packages/scipy/misc/pilutil.py", line 219, in imsave
+    im.save(name)
+  File "/usr/local/anaconda/4.4.0/2/lib/python2.7/site-packages/PIL/Image.py", line 1823, in save
+    fp = builtins.open(filename, "w+b")
+IOError: [Errno 2] No such file or directory: './/home/ruilan2/scratch/MPR0_CCSample/sample_0411/A_00_0099.jpg'
+----------------------------------------
+Begin Torque Epilogue (Wed Apr 11 15:58:28 2018)
+Job ID:           7068190.cc-mgmt1.campuscluster.illinois.edu
+Username:         ruilan2
+Group:            ncsa
+Job Name:         CycleGAN
+Session:          18361
+Limits:           walltime=32:00:00,nodes=1:ppn=16:TeslaK40M,neednodes=1:ppn=16:TeslaK40M
+Resources:        cput=00:08:19,vmem=97649368kb,walltime=00:08:10,mem=1678124kb,energy_used=0
+Job Queue:        ncsa
+Account:          ncsa
+Nodes:            golub127
+End Torque Epilogue
+----------------------------------------
